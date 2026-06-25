@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Crosshair Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🎯 CS2 Crosshair Generator</h1>
+
+    <label>Crosshair Size</label>
+    <input type="range" id="size" min="1" max="10" value="5">
+
+    <label>Crosshair Thickness</label>
+    <input type="range" id="thickness" min="1" max="10" value="2">
+
+    <label>Crosshair Color</label>
+    <input type="color" id="color" value="#00ff00">
+
+    <div id="preview">
+        <div class="crosshair">
+            <span class="top"></span>
+            <span class="bottom"></span>
+            <span class="left"></span>
+            <span class="right"></span>
+        </div>
+    </div>
+
+    <button onclick="copyConfig()">Copy Config</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
