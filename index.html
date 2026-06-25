@@ -3,35 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS2 Crosshair Generator</title>
+    <title>CS2 Toolbox Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>🎯 CS2 Crosshair Generator</h1>
+    <div class="grid"></div>
 
-    <label>Crosshair Size</label>
-    <input type="range" id="size" min="1" max="10" value="5">
+    <div class="container">
 
-    <label>Crosshair Thickness</label>
-    <input type="range" id="thickness" min="1" max="10" value="2">
+        <!-- HERO -->
 
-    <label>Crosshair Color</label>
-    <input type="color" id="color" value="#00ff00">
+        <div class="hero">
 
-    <div id="preview">
-        <div class="crosshair">
-            <span class="top"></span>
-            <span class="bottom"></span>
-            <span class="left"></span>
-            <span class="right"></span>
+            <span class="badge">
+                Counter-Strike 2 Tool
+            </span>
+
+            <h1>
+                CS2 <span>TOOLBOX</span>
+            </h1>
+
+            <p>
+                Professional Crosshair Studio
+            </p>
+
+            <div class="stats">
+
+                <div>
+                    <h3>5+</h3>
+                    <p>Pro Players</p>
+                </div>
+
+                <div>
+                    <h3>∞</h3>
+                    <p>Crosshairs</p>
+                </div>
+
+                <div>
+                    <h3>CS2</h3>
+                    <p>Ready</p>
+                </div>
+
+            </div>
+
         </div>
+
+        <!-- CROSSHAIR PREVIEW -->
+
+        <div class="preview-box">
+
+            <div id="crosshair">
+
+                <div class="arm top"></div>
+
+                <div class="arm bottom"></div>
+
+                <div class="arm left"></div>
+
+                <div class="arm right"></div>
+
+                <div id="dot"></div>
+
+            </div>
+
+        </div>
+
+        <!-- CONTROLS -->
+
+        <div class="controls">
+
+            <label>
+                Size
+                <span id="sizeValue">4</span>
+            </label>
+
+            <input
+                type="range"
+                id="size"
+                min="1"
+                max="10"
+                value="4"
+            >
+
+            <label>
+                Thickness
+                <span id="thicknessValue">2</span>
+            </label>
+
+            <input
+                type="range"
+                id="thickness"
+                min="1"
+                max="8"
+                value="2"
+            >
+
+            <label>
+                Gap
+                <span id="gapValue">6</span>
+            </label>
+
+            <input
+                type="range"
+                id="gap"
+                min="1"
+                max="20"
+                value="6"
+            >
+
+            <label>
+                Crosshair Color
+            </label>
+
+            <input
+                type="color"
+                id="color"
+                value="#00ff00"
+            >
+
+            <p>
+                <input type="checkbox" id="centerDot">
+                Center Dot
+            </p>
+
+            <p>
+                <input type="checkbox" id="outline">
+                Outline
+            </p>
+
+        </div>
+
+        <!-- RANDOM BUTTON -->
+
+        <button onclick="randomProPreset()">
+            🎲 Random Pro Crosshair
+        </button>
+
+        <!-- PRESETS -->
+
+        <h2 style="margin-top:30px;">
+            Pro Player Presets
+        </h2>
+
+        <div class="preset-grid">
+
+            <button
+                class="preset-btn"
+                onclick="loadPreset('simple')"
+            >
+                <strong>s1mple</strong>
+                <br>
+                NAVI
+            </button>
+
+            <button
+                class="preset-btn"
+                onclick="loadPreset('donk')"
+            >
+                <strong>donk</strong>
+                <br>
+                Team Spirit
+            </button>
+
+            <button
+                class="preset-btn"
+                onclick="loadPreset('zywoo')"
+            >
+                <strong>ZywOo</strong>
+                <br>
+                Vitality
+            </button>
+
+            <button
+                class="preset-btn"
+                onclick="loadPreset('m0nesy')"
+            >
+                <strong>m0NESY</strong>
+                <br>
+                G2
+            </button>
+
+            <button
+                class="preset-btn"
+                onclick="loadPreset('niko')"
+            >
+                <strong>NiKo</strong>
+                <br>
+                Falcons
+            </button>
+
+        </div>
+
+        <!-- PLAYER INFO -->
+
+        <div class="player-card">
+
+            <h2 id="playerName">
+                No Preset Selected
+            </h2>
+
+            <p id="playerTeam">
+                Select a professional player
+            </p>
+
+        </div>
+
+        <!-- GENERATED CONFIG -->
+
+        <h2 style="margin-top:30px;">
+            Generated Config
+        </h2>
+
+        <textarea
+            id="configOutput"
+            readonly
+        ></textarea>
+
+        <button
+            class="copy"
+            onclick="copyConfig()"
+        >
+            📋 Copy Config
+        </button>
+
+        <!-- IMPORT CONFIG -->
+
+        <h2 style="margin-top:30px;">
+            Import Config
+        </h2>
+
+        <textarea
+            id="importBox"
+            placeholder="Paste a CS2 crosshair config here..."
+        ></textarea>
+
+        <button onclick="importConfig()">
+            Import Config
+        </button>
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                Built by Amar Elhachemi
+            </p>
+
+            <p>
+                CS2 Toolbox Premium v1.0
+            </p>
+
+        </footer>
+
     </div>
 
-    <button onclick="copyConfig()">Copy Config</button>
-</div>
+    <!-- TOAST -->
 
-<script src="script.js"></script>
+    <div id="toast">
+        Config copied successfully
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
